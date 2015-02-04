@@ -6,3 +6,46 @@ $defaultThemeColor: $lightBlue;
 $defaultWidth: 200px;
 $borderSize: $defaultWidth * 0.1;
 $borderColor: $defaultThemeColor - #222;
+$defaultRadius:30px;
+
+$borderColor:darken(desaturate($defaultThemeColor, 100%),20%);
+$defaultThemeColor:adjust-hue($lightBlue,10);
+
+
+
+/****MIX-INS***/
+
+@mixin Round($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+/***STYLES***/
+
+.shape{
+	display: inline-block;
+	width: $defaultWidth;
+	height: 200px;
+	background: $defaultThemeColor;
+	margin: 20px;
+	border: $borderSize solid $borderColor;
+
+	&:hover{
+		background:$lightRed;
+	}
+}
+
+#shape1 {
+	@include Round(9999px);
+}
+
+#shape2 {
+	@include Round(30px);
+}
+
+#shape3 {
+	@include Round(60px);
+}
+
